@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="static/css/styles.css">
+	<link rel="stylesheet" href="static/css/scrollbar.css">
+	<!-- Add Material font (Roboto) and Material icon as needed -->
+	<link
+		href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700"
+		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Add Material CSS, replace Bootstrap CSS -->
+	<link href="static/lib/material/css/material.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- This is the header section -->
+	<header class="container-fluid">
+		<div class="row">
+			<!-- This contains a bootstrap grid column to add a max width to the tabbed header -->
+			<div class="col-12 col-md-8 col-lg-6 col-xl-4 ml-auto mr-auto p-0">
+				<!-- This section contains tabs headers -->
+				<ul class="nav nav-justified nav-tabs shadow-none" id="justifiedTab" role="tablist">
+					<li class="nav-item">
+						<a aria-controls="scrapping" aria-selected="true" class="nav-link active" data-toggle="tab"
+							href="#scrapping" id="scrapping-tab" role="tab">Scrap And Analyze</a>
+					</li>
+					<li class="nav-item">
+						<a aria-controls="analyze" aria-selected="false" class="nav-link" data-toggle="tab"
+							href="#analyze" id="analyze-tab" role="tab">Analyze</a>
+					</li>
+				</ul>
+				<div class="d-flex justify-content-center mt-3">
+					<div class="custom-control custom-switch" id="connectionSwitch">
+						<input class="custom-control-input" type="checkbox">
+						<span class="custom-control-track"></span>
+						<label class="custom-control-label" for="customSwitch"></label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main class="container-fluid" id="justifiedTabContent">
+		<!-- This tabbed content contains the sections used by the scrapping section -->
+		<div aria-labelledby="tab-content scrapping-tab" class="tab-pane show active left" id="scrapping"
+			role="tabpanel">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="image"></div>
+					<form id="scrappingForm" class="col-12 col-sm-10 col-md-6 col-lg-6 col-xl-4 ml-auto mr-auto"
+						data-loading-image="static/images/scrapping.gif">
+						<div class="form-group">
+							<label for="scrappingInput">Site Url</label>
+							<input type="text" class="form-control" name="scrappingInput" id="scrappingInput"
+								placeholder="url@domail.com">
+							<div class="progress">
+								<div class="progress-bar progress-bar-indeterminate" role="progressbar">
+								</div>
+							</div>
+						</div>
+						<button type="submit" class="btn btn-info ml-auto mr-auto">
+							<span>Scrap and Analyze</span>
+
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 38 38"
+								stroke="#fff">
+								<g fill="none" fill-rule="evenodd">
+									<g transform="translate(1 1)" stroke-width="2">
+										<circle stroke-opacity=".5" cx="18" cy="18" r="18" />
+										<path d="M36 18c0-9.94-8.06-18-18-18">
+											<animateTransform attributeName="transform" type="rotate" from="0 18 18"
+												to="360 18 18" dur="1s" repeatCount="indefinite" />
+										</path>
+									</g>
+								</g>
+							</svg>
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div aria-labelledby="tab-content analyze-tab" class="tab-pane right" id="analyze" role="tabpanel">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="image"></div>
+					<form id="analyzingForm" class="col-12 col-sm-10 col-md-6 col-lg-6 col-xl-4 ml-auto mr-auto"
+						data-loading-image="static/images/analysis.gif">
+						<div class="form-group">
+							<label for="analyzingInput">Scrapping Id</label>
+							<input type="text" class="form-control" name="analyzingInput" id="analyzingInput"
+								placeholder="tempXXXXXXXXXXXXX.XXXXXXX">
+							<div class="progress">
+								<div class="progress-bar progress-bar-indeterminate" role="progressbar">
+								</div>
+							</div>
+						</div>
+
+						<button type="submit" class="btn btn-info ml-auto mr-auto">
+							<span>Analyze</span>
+
+							<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 38 38"
+								stroke="#fff">
+								<g fill="none" fill-rule="evenodd">
+									<g transform="translate(1 1)" stroke-width="2">
+										<circle stroke-opacity=".5" cx="18" cy="18" r="18" />
+										<path d="M36 18c0-9.94-8.06-18-18-18">
+											<animateTransform attributeName="transform" type="rotate" from="0 18 18"
+												to="360 18 18" dur="1s" repeatCount="indefinite" />
+										</path>
+									</g>
+								</g>
+							</svg>
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</main>
+	<button class="btn btn-float btn-info fixed-add-btn d-none" type="button"><i class="material-icons">add</i></button>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+	<!-- Then Material JavaScript on top of Bootstrap JavaScript -->
+	<script src="static/lib/material/js/material.min.js"></script>
+	<!-- This script is used to schedule requests -->
+	<script src="static/js/schedule-request.js"></script>
+	<script src="static/js/event-listeners.js"></script>
+</body>
+
+</html>
