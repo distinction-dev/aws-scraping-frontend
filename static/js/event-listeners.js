@@ -10,16 +10,25 @@ $("form").on("submit", function (event) {
 // Define the scraping listener
 $("#scrappingForm").on("submit", function (event) {
 	event.preventDefault();
-	$.ajax({
-		url: "https://q6qayimd70.execute-api.us-east-1.amazonaws.com/default/ScrapperInvokerFunction",
-		method: "GET",
-		data: {
-			url: $(this).next("input").val()
-		}
-	}).done(function (data) {
-		console.log(data);
-	})
-})
+	const url = $("#scrappingInput").val();
+	const data = {
+		"url": url
+	};
+	console.log(data);
+	fetch("https://q6qayimd70.execute-api.us-east-1.amazonaws.com/default/ScrapperInvokerFunction", {
+		method: 'POST',
+		mode: 'no-cors',
+		cache: 'no-cache',
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify(data)
+	}).then((response) => {
+		console.log(response);
+	}).catch((error) => {
+		console.log(error);
+	});
+});
 
 // Define the analysis listener
 $("#analyzingForm").on("submit", function (event) {
