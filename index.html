@@ -8,7 +8,6 @@
 
 	<!-- CSS -->
 	<link rel="stylesheet" href="static/css/styles.css">
-	<link rel="stylesheet" href="static/css/scrollbar.css">
 	<!-- Add Material font (Roboto) and Material icon as needed -->
 	<link
 		href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700"
@@ -36,11 +35,14 @@
 							href="#analyze" id="analyze-tab" role="tab">Analyze</a>
 					</li>
 				</ul>
-				<div class="d-flex justify-content-center mt-3">
-					<div class="custom-control custom-switch" id="connectionSwitch">
-						<input class="custom-control-input" type="checkbox">
+				<div class="debug-switch-container">
+					<div class="custom-control custom-switch mt-2">
+						<input checked class="custom-control-input" id="debugSwitch" type="checkbox">
 						<span class="custom-control-track"></span>
-						<label class="custom-control-label" for="customSwitch"></label>
+						<label class="custom-control-label" for="debugSwitch">Debug Mode</label>
+					</div>
+					<div class="alert alert-info mt-3 mb-0" role="alert">
+						This app is showing result for 'gmail.com'
 					</div>
 				</div>
 			</div>
@@ -48,17 +50,19 @@
 	</header>
 	<main class="container-fluid" id="justifiedTabContent">
 		<!-- This tabbed content contains the sections used by the scrapping section -->
-		<div aria-labelledby="tab-content scrapping-tab" class="tab-pane show active left" id="scrapping"
+		<div aria-labelledby="tab-content" class="tab-pane show active left scrapping-tab" id="scrapping"
 			role="tabpanel">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="image"></div>
-					<form id="scrappingForm" class="col-12 col-sm-10 col-md-6 col-lg-6 col-xl-4 ml-auto mr-auto"
-						data-loading-image="static/images/scrapping.gif">
-						<div class="form-group">
+					<div class="image-message"></div>
+					<ul class="list-group d-none">
+					</ul>
+					<form id="scrappingForm" class="col-12 col-sm-10 col-md-6 col-lg-6 col-xl-4 ml-auto mr-auto">
+						<div class="form-group d-none">
 							<label for="scrappingInput">Site Url</label>
 							<input type="text" class="form-control" name="scrappingInput" id="scrappingInput"
-								placeholder="url@domail.com">
+								placeholder="url@domail.com" value="gmail.com">
 							<div class="progress">
 								<div class="progress-bar progress-bar-indeterminate" role="progressbar">
 								</div>
@@ -84,12 +88,11 @@
 				</div>
 			</div>
 		</div>
-		<div aria-labelledby="tab-content analyze-tab" class="tab-pane right" id="analyze" role="tabpanel">
+		<div aria-labelledby="tab-content" class="tab-pane right analyze-tab" id="analyze" role="tabpanel">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="image"></div>
-					<form id="analyzingForm" class="col-12 col-sm-10 col-md-6 col-lg-6 col-xl-4 ml-auto mr-auto"
-						data-loading-image="static/images/analysis.gif">
+					<form id="analyzingForm" class="col-12 col-sm-10 col-md-6 col-lg-6 col-xl-4 ml-auto mr-auto d-none">
 						<div class="form-group">
 							<label for="analyzingInput">Scrapping Id</label>
 							<input type="text" class="form-control" name="analyzingInput" id="analyzingInput"
@@ -133,7 +136,8 @@
 	<script src="static/lib/material/js/material.min.js"></script>
 	<!-- This script is used to schedule requests -->
 	<script src="static/js/schedule-request.js"></script>
-	<script src="static/js/event-listeners.js"></script>
+	<script src="static/js/styling.js"></script>
+	<script src="static/js/scrapper.js"></script>
 </body>
 
 </html>
