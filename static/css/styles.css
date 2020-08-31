@@ -1,24 +1,16 @@
-#connectionSwitch {
-	display: none;
-}
-#connectionSwitch.ready {
-	display: inline-block;
-}
 .fixed-add-btn {
 	position: absolute !important;
     bottom: 20px;
 	right: 20px;
 }
-
-/* Giving body a minimum height and hiding it's overflow */
 body {
-	max-height: 100vh;
-	overflow-y: hidden;
+	width: 100vw;
+	overflow-x: hidden;
 }
 /* Fixing the header to the top and giving it a fixed height */
 header {
 	height: 64px;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
@@ -26,42 +18,29 @@ header {
 }
 /* Fixing the main and giving it a top and bottom margin to escape the absolute elements */
 main {
-	position: absolute;
-	top: 70px;
-	bottom: 96px;
-	left: 50%;
-	transform: translateX(-50%);
-	overflow-y: scroll;
+	position: relative;
+	margin-top: 144px;
+	margin-bottom: 96px;
 	overflow-x: hidden;
+	display: flex !important;
+	width: 200vw !important;
+	opacity: 1 !important;
+	transition: transform 0.3s ease;
+}
+
+main.right {
+	transform: translateX(-100vw);
 }
 
 /* Adding height 100% to the tab content and flexbox arrangement */
 .tab-pane {
-	height: 100%;
+	min-height: 500px;
+	width: 100vw;
+	float: left;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	flex-direction: column;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	opacity: 0;
-	transition: all 0.3s ease-in-out;
-}
-.tab-pane.left {
-	transform: translateX(-100%);
-}
-.tab-pane.left.show.active {
-	opacity: 1;
-	transform: translateX(0);
-}
-.tab-pane.right {
-	transform: translateX(100%);
-}
-.tab-pane.right.show.active {
-	opacity: 1;
-	transform: translateX(0);
 }
 
 @media (min-width:577px) {
@@ -90,7 +69,7 @@ main {
 /* Styles for the submit button */
 .tab-pane form button[type=submit] {
 	padding: 0;
-	display: inline-flex;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 }
@@ -117,9 +96,27 @@ main {
 	width: 400px;
 	height: 400px;
 }
-
+.analyze-tab .image {
+	background-image: url('../images/Under Construction.png');
+}
 /* Changing the row flex to column stack */
 .tab-pane .row {
 	flex-direction: column;
 	align-items: center;
+}
+
+/* Styles for the debug switch */
+.debug-switch-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: auto;
+}
+
+/* Set the minimum height for the list group */
+.list-group {
+	min-height: 400px;
+	width: 400px;
+	margin-top: 20px;
 }
